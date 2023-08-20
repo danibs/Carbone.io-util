@@ -29,7 +29,7 @@ It is very difficult to distinguish between text and placeholder. The more your 
 
 <!-- TOC --><a name="the-solution"></a>
 # The solution
-The easiest thing to do is hightlight placeholders!
+The easiest thing to do is hightlight placeholders! 🤓
 
 ![immagine](https://github.com/danibs/Carbone.io-util/assets/30932554/4acd6873-2644-4ae1-b22a-69fcfdc1e028)
 
