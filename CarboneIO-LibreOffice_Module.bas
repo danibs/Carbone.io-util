@@ -1,4 +1,4 @@
-﻿Option Explicit
+Option Explicit
 
 ' Highlight Carbone.io placeholders
 ' 
@@ -33,7 +33,8 @@ Private Const CLOSE_PLACEHOLDER = "}"
 ' *********************************************************
 ' Valid search sections
 Private Const SEARCH_ON_BODY = True
-Private Const SEARCH_ON_HEADER_FOOTER = True
+Private Const SEARCH_ON_HEADER_FOOTER = False
+Private Const SEARCH_ON_CELL = True
 ' *********************************************************
 
 
@@ -183,12 +184,14 @@ End Function
 Private Function isValidSection(ByRef oFoundZone As Object) As Boolean
 	' SwXBodyText for "body"
 	' SwXHeadFootText for Header/Footer
+	' SwXCell for table's cell
 	Dim sectionName As String
 
 	sectionName = oFoundZone.Text.ImplementationName
 	
 	isValidSection = (sectionName = "SwXBodyText" And SEARCH_ON_BODY = True) _
-							Or (sectionName = "SwXHeadFootText" And SEARCH_ON_HEADER_FOOTER = True)
+							Or (sectionName = "SwXHeadFootText" And SEARCH_ON_HEADER_FOOTER = True) _
+							Or (sectionName = "SwXCell" And SEARCH_ON_CELL = True)
 End Function
 
 ' create new character style if not exists
@@ -217,4 +220,3 @@ Private Sub createCharacterStyle(ByRef oDoc As Object)
 		oStyles.insertByName(CHARACTER_STYLE, oStyle)
 	End If
 End Sub
-
